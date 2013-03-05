@@ -1,5 +1,5 @@
 % CSCI3753 - Operating Systems
-% Spring 2012
+% Spring 2013
 % Programming Assignment 3
 % By Andy Sayler (3/6/12)
 
@@ -13,10 +13,9 @@
 \author{
   CSCI 3753 - Operating Systems\\
   University of Colorado at Boulder\\
-  Spring 2012\\
-  By Andy Sayler and Junho Ahn and Richard Han
+  Spring 2013\\
 }
-\date{\emph{Due Date: Saturday, March 24, 2012 11:55pm}}
+\date{\emph{Due Date: Friday, March 29, 2013 11:55pm}}
 
 \begin{document}
 
@@ -33,7 +32,7 @@ submit a report explaining your conclusions and showing your
 supporting data.
 
 You may complete this assignment on the course VM or your own native
-Linux 2.6.32+ installation. You will not be able to complete this lab
+Linux 3.2.35+ installation. You will not be able to complete this lab
 directly on the CU CSEL or elra machines as you will require super
 user access in order to utilize certain scheduler policies.
 You will probably get the most reliable data off of a personal, native
@@ -43,6 +42,13 @@ assignment. Switching environments part way through The assignment
 will make it difficult, if not impossible, to accurately compare and
 contrast your data. Be sure to document your environment in your
 report.
+
+If you are running the course VM on a computer without a processor that supports
+hardware assisted virtualization (e.g., AMD-V or Intel VT-x), then it will
+be very difficult to get good benchmark data.  If this applies to you, then you
+should describe this issue in your report and explain the results that you would
+expect to see when running on a native Linux machine or on a machine that
+supports hardware virtualization.
 
 \section{The Linux Scheduler}
 
@@ -525,7 +531,7 @@ shared, it can be a good way to show off your coding skills to
 potential employers and other programmers.
 
 Github code may be forked from the project page here:\\
-\url{https://github.com/asayler/CU-CS3753-2012-PA3}.
+\url{https://github.com/cgartrel/CU-CS3753-PA3}.
 
 \section{Resources}
 Refer to your textbook and class notes on the Moodle for an overview
