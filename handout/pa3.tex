@@ -37,8 +37,8 @@ directly on the CU CSEL or elra machines as you will require super
 user access in order to utilize certain scheduler policies.
 You will probably get the most reliable data off of a personal, native
 Linux install with few other programs running simultaneously. Whatever
-environment you chose to use must be used consistently throughout this
-assignment. Switching environments part way through The assignment
+environment you choose to use must be used consistently throughout this
+assignment. Switching environments part way through the assignment
 will make it difficult, if not impossible, to accurately compare and
 contrast your data. Be sure to document your environment in your
 report.
@@ -62,7 +62,7 @@ This assignment will focus on the current scheduler implementation.
 The addition of the CFS scheduler to the Linux kernel brought with it
 a more modular scheduler implementation. The scheduler is implemented as
 a core unit (\texttt{kernel/sched.c}) that implements the core
-scheduler behavior and a serious of scheduler class modules that
+scheduler behavior and a series of scheduler class modules that
 implement specific scheduling policies. Currently, the kernel contains
 two of these scheduler classes: The CFS class
 (\texttt{kernel/sched\_fair.c}) and the Real Time (RT) class
@@ -112,7 +112,7 @@ run queue structures are managed by their respective scheduling
 classes. Also, note that although we still use the phrase ``run queue''
 many of these structures are no longer actually queues. For instance, the CFS
 class uses a Red-Black Tree as its so called ``run queue''. We will
-use the term ``run queue'' in this wider since to refer to any data
+use the term ``run queue'' in this wider sense to refer to any data
 structure that a class uses to organize or derive a scheduling order for a
 set of processes.
 
