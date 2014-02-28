@@ -13,9 +13,9 @@
 \author{
   CSCI 3753 - Operating Systems\\
   University of Colorado at Boulder\\
-  Spring 2013\\
+  Spring 2014\\
 }
-\date{\emph{Due Date: Friday, March 29, 2013 11:55pm}}
+\date{\emph{Due Date: Friday, March 28, 2014 11:55pm}}
 
 \begin{document}
 
@@ -32,7 +32,7 @@ submit a report explaining your conclusions and showing your
 supporting data.
 
 You may complete this assignment on the course VM or your own native
-Linux 3.2.35+ installation. You will not be able to complete this lab
+Linux 3.8.0+ installation. You will not be able to complete this lab
 directly on the CU CSEL or elra machines as you will require super
 user access in order to utilize certain scheduler policies.
 You will probably get the most reliable data off of a personal, native
@@ -44,7 +44,7 @@ contrast your data. Be sure to document your environment in your
 report.
 
 If you are running the course VM on a computer without a processor that supports
-hardware assisted virtualization (e.g., AMD-V or Intel VT-x), then it will
+hardware-assisted virtualization (e.g., AMD-V or Intel VT-x), then it will
 be very difficult to get good benchmark data.  If this applies to you, then you
 should describe this issue in your report and explain the results that you would
 expect to see when running on a native Linux machine or on a machine that
@@ -153,7 +153,7 @@ will make a best effort to adhere to real-time scheduling rules for
 these policies, but can not guarantee it. Each task assigned to a RT
 policy must be given a scheduling priority. These priorities dictate the
 ordering of tasks in the real-time run queue. The CFS class does not
-use user supplied scheduling priorities.
+use user-supplied scheduling priorities.
 
 \section{Process Types}
 
@@ -179,7 +179,7 @@ This project requires you to complete the following three items:
 
 \begin{itemize}
 \item Design a series of benchmarks to evaluate the behavior of
-  several scheduling polices in the linux scheduler.
+  several scheduling polices in the Linux scheduler.
 \item Run your benchmarks and analyze the resulting data to draw
   conclusions about the behavior of the tested policies. 
 \item Write a report explaining your conclusions and supporting data.
@@ -263,7 +263,7 @@ test system and setup.
 \item Conclusion - What you learned from your results
 \item References - Any external resources you consulted
 \item Appendix A - Raw Data
-\item Appendix B - All Code
+\item Appendix B - A brief description of each of your source code files
 \end{itemize}
 
 The report should be no longer than necessary to effectively convey your
@@ -409,7 +409,7 @@ using the \texttt{time} command and to only add \texttt{getrusage} or
 \texttt{wait4} if you feel you need it. Alternatively, if you are
 uncomfortable with a scripting language and do not wish to record your
 results by hand, you could use \texttt{getrusage} or \texttt{wait4} to
-collect and process all necessary data inside a top level c program.
+collect and process all necessary data inside a top level C program.
 
 \section{What You Must Provide}
 
@@ -477,7 +477,7 @@ this assignment exceed 110/100.
   CFS. It is actively maintained as a set of patches that
   can be found at
   \url{http://ck.kolivas.org/patches/bfs/}
-  \cite{Kolivas-BFS,Kolivas-BFSFAQ}. Patch
+  \cite{Kolivas-BFSFAQ}. Patch
   and recompile a copy of the Linux kernel that uses the BFS instead
   of the CFS. Run all of the required test combinations in the BFS
   kernel, as well as in the CFS kernel (bringing your total test cases
@@ -578,12 +578,6 @@ that you access the appropriate version of each man page. See
   \newblock Second Edition: 2009.
   \newblock Prentice Hall: New Jersey.
 
-\bibitem{Kolivas-BFS} Kolivas, Con.
-  \newblock \emph{BFS - The Brain Fuck Scheduler}.
-  \newblock 2009.
-  \newblock Accessed 06/01/12.
-  \newblock \url{http://ck.kolivas.org/patches/bfs/sched-BFS.txt}.
-
 \bibitem{Kolivas-BFSFAQ} Kolivas, Con.
   \newblock \emph{FAQS about BFS}.
   \newblock v0.330: 2009.
@@ -594,7 +588,7 @@ that you access the appropriate version of each man page. See
   \newblock \emph{Multiprocessing with the Completely Fair Scheduler}.
   \newblock IBM developerWorks: 2008.
   \newblock Accessed 06/01/12.
-  \newblock \url{http://www.ibm.com/developerworks/linux/library/l-cfs/}.
+  \newblock \url{http://archive.is/pDHXX}.
 
 \bibitem{Le-StudyLKS} Le, Thang Minh.
   \newblock \emph{A Study on Linux Kernel Scheduler: version 2.6.32}.

@@ -20,3 +20,10 @@ rwoutput*
 #LaTeX Cruf#
 handout/*.log
 handout/*.aux
+handout/.project
+
+handout/pa3.synctex.gz
+
+handout/tmp/pa3.aux
+
+handout/tmp/pa3.log
