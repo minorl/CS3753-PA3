@@ -12,7 +12,12 @@ INPUTBLOCKS = $(shell echo $(INPUTFILESIZEBYTES)\/$(INPUTBLOCKSIZEBYTES) | bc)
 
 .PHONY: all clean
 
-all: pi pi-sched rw rr_quantum
+all: pi pi-sched rw rr_quantum mix forker
+forker: forker.o
+	$(CC) $(LFLAGS) $^ -o $@ -lm
+
+mix: mix.o
+	$(CC) $(LFLAGS) $^ -o $@ -lm
 
 pi: pi.o
 	$(CC) $(LFLAGS) $^ -o $@ -lm
@@ -25,6 +30,12 @@ rw: rw.o rwinput
 
 rr_quantum: rr_quantum.o
 	$(CC) $(LFLAGS) $^ -o $@ -lm
+
+forker.o: forker.c
+	$(CC) $(CFLAGS) $<
+
+mix.o: mix.c
+	$(CC) $(CFLAGS) $<
 
 pi.o: pi.c
 	$(CC) $(CFLAGS) $<
@@ -42,7 +53,7 @@ rr_quantum.o: rr_quantum.c
 	$(CC) $(CFLAGS) $<
 
 clean: testclean
-	rm -f pi pi-sched rw rr_quantum
+	rm -f pi pi-sched rw rr_quantum mix forker
 	rm -f rwinput
 	rm -f *.o
 	rm -f *~
