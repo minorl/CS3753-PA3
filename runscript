@@ -8,16 +8,25 @@
 #Description:
 #	Bash script to run the different cases for the assigment
 
-TIMEFORMAT="wall=%e user=%U system=%S CPU=%P i-switched=%c v-switched=%w"
+# Define a timestamp function
+timestamp() {
+  date +"%T"
+}
+
+TIMEFORMAT="%e,%U,%S,%P,%c,%w"
 MAKE="make -s"
 
 CHILD=(10 50 500)
 SCHED=(SCHED_OTHER SCHED_FIFO SCHED_RR)
 PROG=(pi rw mix)
+RESULTFILE=result$(timestamp)
 
 echo Building code...
 $MAKE clean
 $MAKE
+
+echo Creating result file...
+echo "wall,user,system,CPU,i-switched,v-switched" > $RESULTFILE
 
 echo Starting test runs...
 
@@ -27,16 +36,8 @@ do
 	do
 		for k in ${CHILD[@]}
 		do
-			echo $i with $j and $k children
+			echo $i with $j and $k children...
+			/usr/bin/time -f "$TIMEFORMAT" sudo ./forker $j $k $i > /dev/null 2>>$RESULTFILE
 		done
 	done
 done
-
-# echo CPU-bound with $CHILDREN1 children and $SCHED1
-# /usr/bin/time -f "$TIMEFORMAT" ./forker $SCHED1 $CHILDREN1 pi > /dev/null 2>>results
-
-# echo CPU-bound with $CHILDREN1 children and $SCHED2
-# /usr/bin/time -f "$TIMEFORMAT" ./forker $SCHED2 $CHILDREN1 pi > /dev/null
-
-# echo CPU-bound with $CHILDREN1 children and $SCHED3
-# /usr/bin/time -f "$TIMEFORMAT" ./forker $SCHED3 $CHILDREN1 pi > /dev/null
