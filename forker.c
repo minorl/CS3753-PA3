@@ -14,15 +14,23 @@
  // rw.c - bytestocopy blocksize inputfile outputfile (adds to output)
  // pi-sched.c - iterations schedulingpolicy
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <sched.h>
+
 int main(int argc, char* argv[]){
 	int policy;
 	int children;
 	int i;
 	pid_t pid;
+    struct sched_param param;
+
 	// Validate input, because apparently I don't trust myself. Dark times.
 	if(argc != 4){
-		fprintf(stderr, "Correct usage: schedulingPolicy 
-				numberOfChildren CPULoadType\n");
+		fprintf(stderr, "Correct usage: schedulingPolicy numberOfChildren CPULoadType\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -49,7 +57,7 @@ int main(int argc, char* argv[]){
 	if(strcmp(argv[3], "pi")){
 		if(strcmp(argv[3], "rw")){
 			if(strcmp(argv[3], "mix")){
-				fprintf(stderr, "Invalid program name, %s\n", arvg[3]);
+				fprintf(stderr, "Invalid program name, %s\n", argv[3]);
 				exit(EXIT_FAILURE);
 			}
 		}

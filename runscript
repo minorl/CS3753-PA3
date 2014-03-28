@@ -1,0 +1,42 @@
+#/!/bin/bash
+
+#File: runscript
+#Author: Andy Sayler / Leslie Minor
+#Project: CSCI 3753 Programming Assignment 3
+#Create Date: 2012/03/09
+#Modify Date: 2014/03/28
+#Description:
+#	Bash script to run the different cases for the assigment
+
+TIMEFORMAT="wall=%e user=%U system=%S CPU=%P i-switched=%c v-switched=%w"
+MAKE="make -s"
+
+CHILD=(10 50 500)
+SCHED=(SCHED_OTHER SCHED_FIFO SCHED_RR)
+PROG=(pi rw mix)
+
+echo Building code...
+$MAKE clean
+$MAKE
+
+echo Starting test runs...
+
+for i in ${PROG[@]}
+do
+	for j in ${SCHED[@]}
+	do
+		for k in ${CHILD[@]}
+		do
+			echo $i with $j and $k children
+		done
+	done
+done
+
+# echo CPU-bound with $CHILDREN1 children and $SCHED1
+# /usr/bin/time -f "$TIMEFORMAT" ./forker $SCHED1 $CHILDREN1 pi > /dev/null 2>>results
+
+# echo CPU-bound with $CHILDREN1 children and $SCHED2
+# /usr/bin/time -f "$TIMEFORMAT" ./forker $SCHED2 $CHILDREN1 pi > /dev/null
+
+# echo CPU-bound with $CHILDREN1 children and $SCHED3
+# /usr/bin/time -f "$TIMEFORMAT" ./forker $SCHED3 $CHILDREN1 pi > /dev/null
